@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: walmart_date_dim
+    description: "This is the raw department table from snowflake"
+
+          
+
+sources:
+  - name: department
+    database: Walmart_SCD1_DB
+    schema: PUBLIC
+    tables:
+      - name: department_raw
+        identifier: WALMART_DEPARTMENT_RAW
+
+
+
