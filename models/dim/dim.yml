@@ -4,8 +4,12 @@ models:
   - name: walmart_date_dim
     description: "This is the raw department table from snowflake"
 
-          
+  - name: walmart_store_dim
+    description: "Store dimension"
 
+  - name: walmart_fact_base
+    description: "Fact table joining, date, store and fact info to be used in SCD2"
+          
 sources:
   - name: department
     database: Walmart_SCD1_DB
@@ -13,6 +17,16 @@ sources:
     tables:
       - name: department_raw
         identifier: WALMART_DEPARTMENT_RAW
-
-
+  - name: store
+    database: Walmart_SCD1_DB
+    schema: PUBLIC
+    tables:
+      - name: store_raw
+        identifier: WALMART_STORE_RAW
+  - name: fact
+    database: Walmart_SCD1_DB
+    schema: PUBLIC
+    tables:
+      - name: fact_raw
+        identifier: WALMART_FACT_RAW
 
